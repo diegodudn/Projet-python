@@ -7,6 +7,22 @@ import pandas as pd
 from datetime import datetime
 
 
+
+def get_source_file():
+    # Demande du fichier JSON
+    source_file = input("Entrez le chemin du fichier de log au format .JSON  à traiter : ")
+    
+    # Vérification que le fichier existe
+    if not os.path.exists(source_file):
+        print(f"Le fichier {source_file} n'existe pas. Veuillez entrer un chemin valide.")
+        return get_source_file()  # Demander à nouveau si le fichier n'existe pas
+    
+    return source_file
+
+
+
+
+
 def main():
     # Demander à l'utilisateur le fichier source
     source_file = get_source_file()
